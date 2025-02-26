@@ -51,8 +51,6 @@ router.post("/sign-up", async (req, res) => {
 router.post("/sign-in", async (req, res) => {
   try {
     const { email, password } = req.body;
-    console.log(req.body);
-
     //user exits or not
     const existingUser = await User.findOne({ email });
     if (!existingUser) {

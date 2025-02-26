@@ -29,7 +29,7 @@ export default function Signup() {
         "http://localhost:5000/api/v1/sign-up",
         formData
       );
-      console.log(fetch);
+      alert(fetch.data.message);
       setFormData({
         username: "",
         email: "",

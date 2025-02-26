@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { authAction } from "../app/auth";
+import { useDispatch } from "react-redux";
 export default function Login() {
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -16,17 +18,22 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Login Data:", formData);
     try {
       const fetch = await axios.post(
         "http://localhost:5000/api/v1/sign-in",
         formData
       );
       console.log(fetch);
+      localStorage.setItem("id", fetch.data.id);
+      localStorage.setItem("token", fetch.data.token);
+      localStorage.setItem("role", fetch.data.role);
       setFormData({ email: "", password: "" });
+      dispatch(authAction.logIn());
+      dispatch(authAction.changeRole(fetch.data.role));
+
       navigate("/");
     } catch (error) {
-      console.log(error);
+      alert(error.response.data.message);
     }
   };
 
