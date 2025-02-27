@@ -3,6 +3,7 @@ import bcrypt from "bcryptjs";
 import User from "../models/user.js";
 import jwt from "jsonwebtoken";
 import authenticateToken from "./userAuth.js";
+
 const router = Router();
 
 // Sign Up Route

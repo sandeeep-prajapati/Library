@@ -14,7 +14,7 @@ import { authAction } from "./app/auth";
 import Book from "./pages/Book";
 const App = () => {
   const dispatch = useDispatch();
-  // const role = useSelector((state) => state.auth.role);
+  const role = useSelector((state) => state.auth.role);
   useEffect(() => {
     if (
       localStorage.getItem("id") &&
@@ -24,7 +24,7 @@ const App = () => {
       dispatch(authAction.logIn());
       dispatch(authAction.changeRole(localStorage.getItem("role")));
     }
-  }, []);
+  }, [role]);
   return (
     <div className="h-screen flex flex-col bg-black text-white">
       <Navbar />

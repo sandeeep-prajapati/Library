@@ -42,7 +42,7 @@ export default function Navbar() {
               About Us
             </Link>
           </li>
-          {role === "admin" && (
+          {role === "admin" && isLoggedIn && (
             <li>
               <Link to="/addbook" className="hover:text-gray-400">
                 Add Book

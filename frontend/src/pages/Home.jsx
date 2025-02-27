@@ -19,7 +19,7 @@ export default function Home() {
         <p className="text-lg max-w-2xl mb-6 font-mono shadow-2xl">
           Discover a world of knowledge with our vast collection of books.
           Whether you're looking for fiction, non-fiction, or academic
-          resources, MyLibrary is here to fuel your curiosity and passion for
+          resources, DavLibrary is here to fuel your curiosity and passion for
           reading.
         </p>
         <Link

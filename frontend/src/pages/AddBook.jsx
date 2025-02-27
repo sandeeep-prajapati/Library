@@ -17,11 +17,18 @@ const AdminPanel = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const headers = {
+      id: localStorage.getItem("id"),
+      authorization: `bearer ${localStorage.getItem("token")}`,
+    };
     try {
       const response = await axios.post(
         "http://localhost:5000/api/v1/add-book",
-        book
+        book,
+        { headers }
       );
+      console.log("checking response", response);
+
       alert("Book added successfully!");
       setBook({
         class: "",
