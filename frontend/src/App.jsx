@@ -12,6 +12,7 @@ import Profile from "./pages/profile/Profile";
 import { useDispatch, useSelector } from "react-redux";
 import { authAction } from "./app/auth";
 import Book from "./pages/Book";
+import Cart from "./pages/profile/Cart";
 const App = () => {
   const dispatch = useDispatch();
   const role = useSelector((state) => state.auth.role);
@@ -26,7 +27,7 @@ const App = () => {
     }
   }, [role]);
   return (
-    <div className="h-screen flex flex-col bg-black text-white">
+    <div className="md:h-screen  flex flex-col bg-black text-white">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -36,7 +37,8 @@ const App = () => {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/addbook" element={<AddBook />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/profile" element={<Book />} />
+        <Route path="/book/:bookid" element={<Book />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
       <Footer />
     </div>

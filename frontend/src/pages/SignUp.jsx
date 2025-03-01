@@ -23,7 +23,6 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Signup Data:", formData);
     try {
       const fetch = await axios.post(
         "http://localhost:5000/api/v1/sign-up",

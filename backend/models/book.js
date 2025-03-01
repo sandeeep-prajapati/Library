@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const book = new mongoose.Schema(
   {
-    class: {
+    classNumber: {
       type: Number,
       required: true,
     },
@@ -22,7 +22,7 @@ const book = new mongoose.Schema(
       type: String,
       required: true,
     },
-    availibility: {
+    availability: {
       type: String,
       default: "Available",
       enum: ["Available", "Not Available"],
@@ -31,4 +31,4 @@ const book = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("books", book);
+export default mongoose.model("Book", book);

@@ -6,7 +6,7 @@ const router = Router();
 // add book to cart
 router.put("/add-book-to-cart", authenticateToken, async (req, res) => {
   try {
-    const { bookid, id } = req.headers;
+    const { id, bookid } = req.headers;
     const userData = await User.findById(id);
     const isBookinCart = userData.cart.includes(bookid);
     if (isBookinCart) {
@@ -27,11 +27,13 @@ router.put(
       const { bookid } = req.params;
       const { id } = req.headers;
       const userData = await User.findById(id);
-      const isBookinCart = userData.favourites.includes(bookid);
+      const isBookinCart = userData.cart.includes(bookid);
+
       if (isBookinCart) {
         await User.findByIdAndUpdate(id, { $pull: { cart: bookid } });
+        return res.status(200).json({ message: "book remove from cart" });
       }
-      return res.status(200).json({ message: "book remove from cart" });
+      return res.status(400).json({ message: "An error occured" });
     } catch (error) {
       res.status(500).json({ message: "internal server error" });
     }

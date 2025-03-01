@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useSelector } from "react-redux";
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
@@ -13,7 +14,7 @@ export default function Navbar() {
         isLoggedIn
           ? "bg-gradient-to-r from-blue-500 to-black"
           : "bg-gradient-to-r from-amber-500"
-      } to-black text-white rounded-b`}
+      } to-black text-white `}
     >
       <div className="container mx-auto flex justify-between items-center p-4">
         <Link to="/" className="text-xl font-bold">
@@ -26,7 +27,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        <ul className={`md:flex space-x-6 hidden`}>
+        <ul className={`md:flex gap-2 space-x-6 hidden font-bold`}>
           <li>
             <Link to="/" className="hover:text-gray-400">
               Home
@@ -38,7 +39,7 @@ export default function Navbar() {
             </Link>
           </li>
           <li>
-            <Link to="/about" className="hover:text-gray-400">
+            <Link to="/about" className="hover:text-gray-400 flex gap-1">
               About Us
             </Link>
           </li>
@@ -53,7 +54,7 @@ export default function Navbar() {
             <li>
               <Link
                 to="/profile"
-                className="hover:bg-blue-300  bg-blue-500 rounded p-1"
+                className="hover:bg-blue-600  bg-blue-500 rounded p-1"
               >
                 Profile
               </Link>
@@ -63,7 +64,7 @@ export default function Navbar() {
             <li>
               <Link
                 to="/login"
-                className="hover:bg-blue-300  bg-blue-500 rounded p-1"
+                className="hover:bg-blue-600  bg-blue-500 rounded p-1"
               >
                 LogIn
               </Link>
@@ -73,7 +74,7 @@ export default function Navbar() {
             <li>
               <Link
                 to="/signup"
-                className="hover:bg-amber-300 bg-amber-500 rounded p-1"
+                className="hover:bg-amber-600 bg-amber-500 rounded p-1"
               >
                 SignUP
               </Link>
@@ -86,11 +87,29 @@ export default function Navbar() {
         <ul className="md:hidden mt-4 space-y-2">
           <li>
             <Link
+              to="/"
+              className="block py-2 "
+              onClick={() => setIsOpen(false)}
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
               to="/allbook"
               className="block py-2"
               onClick={() => setIsOpen(false)}
             >
               All Books
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/about"
+              className="block py-2"
+              onClick={() => setIsOpen(false)}
+            >
+              About Us
             </Link>
           </li>
           {isLoggedIn && (

@@ -19,7 +19,7 @@ const Allbook = () => {
   }, []);
 
   return (
-    <div className="py-10 px-20 bg-black ">
+    <div className="py-10 px-20 md:bg-black ">
       {Class.map((value, ind) => (
         <div className="py-4" key={ind}>
           <h1 className="text-3xl ">Class {value}</h1>

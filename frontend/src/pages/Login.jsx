@@ -23,7 +23,6 @@ export default function Login() {
         "http://localhost:5000/api/v1/sign-in",
         formData
       );
-      console.log(fetch);
       localStorage.setItem("id", fetch.data.id);
       localStorage.setItem("token", fetch.data.token);
       localStorage.setItem("role", fetch.data.role);

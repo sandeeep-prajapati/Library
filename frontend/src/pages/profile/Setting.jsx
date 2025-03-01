@@ -1,16 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { authAction } from "../../app/auth";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 const Setting = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const HandleAddress = () => {};
+  const [address, setAdrress] = useState({
+    address: "",
+  });
+  const headers = {
+    id: localStorage.getItem("id"),
+    authorization: `bearer ${localStorage.getItem("token")}`,
+  };
+  const HandleAddress = async () => {
+    try {
+      await axios.put("http://localhost:5000/api/v1/update-address", address, {
+        headers,
+      });
+      alert("Address Update Successfully");
+      navigate(0);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const HandleLogout = () => {
-    dispatch(authAction.logOut());
-    localStorage.clear();
-
-    navigate("/");
+    if (confirm("Are you sure?")) {
+      dispatch(authAction.logOut());
+      localStorage.clear();
+      navigate("/");
+    }
   };
   return (
     <div className="flex flex-col gap-5 ">
@@ -19,6 +38,9 @@ const Setting = () => {
           type="text"
           className="w-full h-15 px-6 bg-gray-700 border rounded"
           placeholder="Enter your Address"
+          name="address"
+          value={address.address}
+          onChange={(e) => setAdrress({ address: e.target.value })}
         />
         <button
           className="bg-blue-500 p-2 rounded hover:bg-blue-600"

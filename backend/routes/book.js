@@ -6,7 +6,6 @@ const router = Router();
 
 //add book --admin
 router.post("/add-book", authenticateToken, async (req, res) => {
-  console.log("check add book");
   try {
     const { id } = req.headers;
     const user = await User.findById(id);
@@ -60,6 +59,18 @@ router.delete("/delete-book", authenticateToken, async (req, res) => {
 router.get("/get-all-books", async (req, res) => {
   try {
     const books = await Book.find().sort({ createdAt: -1 });
+    return res.status(200).json({
+      status: "Success",
+      data: books,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "AN error occured" });
+  }
+});
+router.get("/get-all-books/:bookid", async (req, res) => {
+  try {
+    const bookid = req.params.bookid;
+    const books = await Book.findById(bookid);
     return res.status(200).json({
       status: "Success",
       data: books,

@@ -44,7 +44,6 @@ router.post("/sign-up", async (req, res) => {
     await newUser.save();
     return res.status(201).json({ message: "Sign Up Successful" });
   } catch (error) {
-    console.error("Signup Error:", error);
     res.status(500).json({ message: "Internal server error" });
   }
 });
@@ -84,6 +83,7 @@ router.post("/sign-in", async (req, res) => {
 router.get("/get-user-information", authenticateToken, async (req, res) => {
   try {
     const { id } = req.headers;
+
     const data = await User.findById(id).select("-password");
     return res.status(200).json(data);
   } catch (error) {
