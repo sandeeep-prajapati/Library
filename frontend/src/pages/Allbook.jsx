@@ -6,10 +6,10 @@ const Allbook = () => {
   const Class = [12, 11, 10, 9];
   const fetchData = async () => {
     try {
-      const fetch = await axios.get(
+      const { data } = await axios.get(
         "http://localhost:5000/api/v1/get-all-books"
       );
-      setAllbooks(fetch.data.data);
+      setAllbooks(data.data);
     } catch (error) {
       console.log(error);
     }

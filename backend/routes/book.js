@@ -10,15 +10,15 @@ router.post("/add-book", authenticateToken, async (req, res) => {
     const { id } = req.headers;
     const user = await User.findById(id);
     if (user.role !== "admin") {
-      res.status(400).json({ message: "Unauthorized Access" });
+      return res.status(400).json({ message: "Unauthorized Access" });
     }
     const book = new Book({
-      class: req.body.class,
+      classNumber: req.body.classNumber,
       url: req.body.url,
       title: req.body.title,
       author: req.body.author,
       category: req.body.category,
-      availibility: req.body.availibility,
+      availability: req.body.availability,
     });
     await book.save();
 
@@ -37,7 +37,7 @@ router.put("/update-book", authenticateToken, async (req, res) => {
       title: req.body.title,
       author: req.body.author,
       category: req.body.category,
-      availibility: req.body.availibility,
+      availability: req.body.availability,
     });
 
     res.status(200).json({ message: "Book updated successfully" });
@@ -49,6 +49,8 @@ router.put("/update-book", authenticateToken, async (req, res) => {
 router.delete("/delete-book", authenticateToken, async (req, res) => {
   try {
     const { bookid } = req.headers;
+    console.log(bookid);
+
     await Book.findByIdAndDelete(bookid);
     res.status(200).json({ message: "Book deleted successfully" });
   } catch (error) {

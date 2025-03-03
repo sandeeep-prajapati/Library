@@ -3,12 +3,12 @@ import axios from "axios";
 
 const AdminPanel = () => {
   const [book, setBook] = useState({
-    class: "",
+    classNumber: "",
     url: "",
     title: "",
     author: "",
     category: "",
-    availibility: "Available",
+    availability: "Available",
   });
 
   const handleChange = (e) => {
@@ -31,12 +31,12 @@ const AdminPanel = () => {
 
       alert("Book added successfully!");
       setBook({
-        class: "",
+        classNumber: "",
         url: "",
         title: "",
         author: "",
         category: "",
-        availibility: "Available",
+        availability: "Available",
       });
     } catch (error) {
       console.error("Error adding book", error);
@@ -49,10 +49,10 @@ const AdminPanel = () => {
       <h2 className="text-2xl mb-4 font-bold">Add New Book</h2>
       <form onSubmit={handleSubmit} className="space-y-4 text-gray-50">
         <input
-          name="class"
+          name="classNumber"
           type="number"
           placeholder="Class"
-          value={book.class}
+          value={book.classNumber}
           onChange={handleChange}
           required
           className="w-full p-2 bg-gray-700 rounded  "
@@ -94,8 +94,8 @@ const AdminPanel = () => {
           className="w-full p-2 rounded bg-gray-700 border border-gray-600"
         />
         <select
-          name="availibility"
-          value={book.availibility}
+          name="availibality"
+          value={book.availability}
           onChange={handleChange}
           className="w-full p-2 rounded bg-gray-700 border border-gray-600"
         >

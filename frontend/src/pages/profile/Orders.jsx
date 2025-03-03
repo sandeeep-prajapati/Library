@@ -80,7 +80,7 @@ const Orders = () => {
                     (order.status === "Take It Now" && "text-green-400") ||
                     (order.status === "Taken By You" && "text-green-600") ||
                     (order.status === "Return By You" && "text-blue-500") ||
-                    (order.status === "canceled" && "text-red-500") ||
+                    (order.status === "Canceled" && "text-red-600") ||
                     (order.status === "Order Placed" && "text-yellow-500")
                   }`}
                 >

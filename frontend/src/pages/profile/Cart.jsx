@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Trash2Icon } from "lucide-react";
-
+import { Link } from "react-router-dom";
 const CartPage = () => {
   const [cart, setCart] = useState([]);
   const [orders, setOrders] = useState([]);
@@ -79,11 +79,16 @@ const CartPage = () => {
               className="border rounded-lg shadow-lg bg-gray-900 hover:bg-gray-800 overflow-hidden transform transition duration-300 hover:scale-105"
             >
               {/* Book Image */}
-              <img
-                src={book.url || "https://via.placeholder.com/150"}
-                alt={book.title}
-                className="w-fit h-38 flex justify-self-center object-cover"
-              />
+              <Link
+                to={`/book/${book._id}`}
+                state={{ nav: "/profile", value: "cart" }}
+              >
+                <img
+                  src={book.url || "https://via.placeholder.com/150"}
+                  alt={book.title}
+                  className="w-fit h-38 flex justify-self-center object-cover"
+                />
+              </Link>
 
               {/* Book Info */}
               <div className="p-4 flex flex-col justify-between">

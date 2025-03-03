@@ -4,6 +4,7 @@ import Orders from "./Orders";
 import Setting from "./Setting";
 import Cart from "./Cart";
 import axios from "axios";
+
 import { useSelector } from "react-redux";
 const Profile = () => {
   const [user, setUser] = useState([]);
@@ -28,7 +29,9 @@ const Profile = () => {
     fetch();
   }, []);
 
-  const [selectedTab, setSelectedTab] = useState("settings");
+  const [selectedTab, setSelectedTab] = useState(
+    `${role === "user" ? "favorites" : "orders"}`
+  );
 
   return (
     <div className="w-full md:h-auto  p-6 bg-black text-white rounded-lg shadow-lg  flex md:flex-row flex-col md:items-start items-center">
