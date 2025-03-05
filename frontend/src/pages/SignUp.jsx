@@ -25,7 +25,7 @@ export default function Signup() {
     e.preventDefault();
     try {
       const fetch = await axios.post(
-        "http://localhost:5000/api/v1/sign-up",
+        "https://library-j4qc.onrender.com/api/v1/sign-up",
         formData
       );
       alert(fetch.data.message);

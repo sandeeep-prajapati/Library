@@ -25,7 +25,7 @@ const BookPage = () => {
   const HandleDelete = async () => {
     try {
       const fetch = await axios.delete(
-        `http://localhost:5000/api/v1/delete-book`,
+        `https://library-j4qc.onrender.com/api/v1/delete-book`,
         { headers }
       );
       alert(fetch.data.message);
@@ -37,7 +37,7 @@ const BookPage = () => {
   const HandleCart = async () => {
     try {
       const fetch = await axios.put(
-        `http://localhost:5000/api/v1/add-book-to-cart`,
+        `https://library-j4qc.onrender.com/api/v1/add-book-to-cart`,
         {},
         { headers }
       );
@@ -49,7 +49,7 @@ const BookPage = () => {
   const HandleFavorites = async () => {
     try {
       const fetch = await axios.put(
-        `http://localhost:5000/api/v1/add-book-to-favourite`,
+        `https://library-j4qc.onrender.com/api/v1/add-book-to-favourite`,
         {},
         { headers }
       );
@@ -61,7 +61,7 @@ const BookPage = () => {
   const fetchData = async () => {
     try {
       const fetch = await axios.get(
-        `http://localhost:5000/api/v1/get-all-books/${bookid}`
+        `https://library-j4qc.onrender.com/api/v1/get-all-books/${bookid}`
       );
       setBookdetail(fetch.data.data);
     } catch (error) {

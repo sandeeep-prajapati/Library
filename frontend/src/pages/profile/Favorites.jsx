@@ -15,7 +15,7 @@ const Favorites = () => {
         authorization: `Bearer ${localStorage.getItem("token")}`,
       };
       const { data } = await axios.get(
-        `http://localhost:5000/api/v1/get-favourite-books`,
+        `https://library-j4qc.onrender.com/api/v1/get-favourite-books`,
         { headers }
       );
       setFavoriteBooks(data.data);
@@ -34,7 +34,7 @@ const Favorites = () => {
         authorization: `Bearer ${localStorage.getItem("token")}`,
       };
       const response = await axios.put(
-        `http://localhost:5000/api/v1/remove-book-to-favourite/${bookId}`,
+        `https://library-j4qc.onrender.com/api/v1/remove-book-to-favourite/${bookId}`,
         {},
         { headers }
       );

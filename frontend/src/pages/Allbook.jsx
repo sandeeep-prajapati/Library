@@ -7,7 +7,7 @@ const Allbook = () => {
   const fetchData = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:5000/api/v1/get-all-books"
+        "https://library-j4qc.onrender.com/api/v1/get-all-books"
       );
       setAllbooks(data.data);
     } catch (error) {

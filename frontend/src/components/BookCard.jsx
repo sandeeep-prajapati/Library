@@ -18,7 +18,9 @@ const BookCard = ({ book, classvalue }) => {
           <p className="text-gray-200 font-semibold">
             Category: {book?.category}
           </p>
-          <p className="text-gray-200 font-semibold">Class: {book?.class}</p>
+          <p className="text-gray-200 font-semibold">
+            Class: {book?.classNumber}
+          </p>
           {
             <span
               className={`mt-2 text-sm font-semibold ${

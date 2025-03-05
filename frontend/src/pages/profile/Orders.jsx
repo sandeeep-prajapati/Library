@@ -15,7 +15,7 @@ const Orders = () => {
     const newStatus = e.target.value;
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/v1/update-status/${orderid}`, // ✅ Adjust API URL as needed
+        `https://library-j4qc.onrender.com/api/v1/update-status/${orderid}`, // ✅ Adjust API URL as needed
         { status: newStatus },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -32,7 +32,7 @@ const Orders = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `http://localhost:5000/api/v1/${
+        `https://library-j4qc.onrender.com/api/v1/${
           role === "admin" ? "get-all-order" : "get-order-history"
         }`,
         { headers }

@@ -17,7 +17,7 @@ const CartPage = () => {
   const HandleCart = async (bookid) => {
     try {
       const fetch = await axios.put(
-        `http://localhost:5000/api/v1/remove-book-to-cart/${bookid}`,
+        `https://library-j4qc.onrender.com/api/v1/remove-book-to-cart/${bookid}`,
         {},
         { headers }
       );
@@ -33,7 +33,7 @@ const CartPage = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `http://localhost:5000/api/v1/get-user-cart`,
+        `https://library-j4qc.onrender.com/api/v1/get-user-cart`,
         { headers }
       );
       setCart(data.data);
@@ -51,7 +51,7 @@ const CartPage = () => {
     setOrders(cart);
     try {
       const fetch = await axios.post(
-        `http://localhost:5000/api/v1/place-order`,
+        `https://library-j4qc.onrender.com/api/v1/place-order`,
         orders,
         { headers }
       );

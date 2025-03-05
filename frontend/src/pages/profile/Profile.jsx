@@ -17,7 +17,7 @@ const Profile = () => {
 
     try {
       const data = await axios.get(
-        "http://localhost:5000/api/v1/get-user-information",
+        "https://library-j4qc.onrender.com/api/v1/get-user-information",
         { headers }
       );
       setUser(data.data);

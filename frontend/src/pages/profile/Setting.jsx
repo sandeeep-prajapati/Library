@@ -15,9 +15,13 @@ const Setting = () => {
   };
   const HandleAddress = async () => {
     try {
-      await axios.put("http://localhost:5000/api/v1/update-address", address, {
-        headers,
-      });
+      await axios.put(
+        "https://library-j4qc.onrender.com/api/v1/update-address",
+        address,
+        {
+          headers,
+        }
+      );
       alert("Address Update Successfully");
       navigate(0);
     } catch (error) {
