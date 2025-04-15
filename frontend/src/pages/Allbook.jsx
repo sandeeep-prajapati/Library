@@ -19,9 +19,9 @@ const Allbook = () => {
   }, []);
 
   return (
-    <div className="py-10 px-20 md:bg-black ">
+    <div className="py-10 px-20 bg-black h-full ">
       {Class.map((value, ind) => (
-        <div className="py-4" key={ind}>
+        <div className="py-4 " key={ind}>
           <h1 className="text-3xl ">Class {value}</h1>
           <hr className="border-gray-500 mb-2" />
           <br />

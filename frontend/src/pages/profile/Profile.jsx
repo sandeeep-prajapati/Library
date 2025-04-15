@@ -34,7 +34,7 @@ const Profile = () => {
   );
 
   return (
-    <div className="w-full md:h-auto  p-6 bg-black text-white rounded-lg shadow-lg  flex md:flex-row flex-col md:items-start items-center">
+    <div className="w-full  h-screen p-6 bg-black text-white rounded-lg shadow-lg  flex md:flex-row flex-col md:items-start items-center">
       {/* Left Sidebar (Navigation) */}
       <div className="md:w-1/3 p-4 md:border-r  border-gray-700">
         <h1 className="text-3xl font-bold mb-2">Profile</h1>

@@ -123,6 +123,17 @@ export default function Navbar() {
               </Link>
             </li>
           )}
+          {isLoggedIn && role === "admin" && (
+            <li>
+              <Link
+                to="/addbook"
+                className="block py-2"
+                onClick={() => setIsOpen(false)}
+              >
+                Add Book
+              </Link>
+            </li>
+          )}
           {!isLoggedIn && (
             <li>
               <Link

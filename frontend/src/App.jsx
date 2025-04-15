@@ -27,7 +27,7 @@ const App = () => {
     }
   }, [role]);
   return (
-    <div className="md:h-screen  flex flex-col bg-black text-white">
+    <div className="md:h-full flex flex-col bg-black text-white ">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

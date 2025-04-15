@@ -45,9 +45,9 @@ const AdminPanel = () => {
   };
 
   return (
-    <div className=" md:w-120 w-80 mx-auto p-6 flex flex-col items-center mt-10  bg-white  text-black rounded-lg shadow-md">
+    <div className=" md:w-120 w-80 mx-auto p-6 flex flex-col items-center mt-10 h-full  bg-white  text-black rounded-lg shadow-md">
       <h2 className="text-2xl mb-4 font-bold">Add New Book</h2>
-      <form onSubmit={handleSubmit} className="space-y-4 text-gray-50">
+      <form onSubmit={handleSubmit} className="space-y-4 text-gray-50 ">
         <input
           name="classNumber"
           type="number"

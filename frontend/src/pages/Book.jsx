@@ -73,7 +73,7 @@ const BookPage = () => {
   }, []);
 
   return (
-    <div className="md:w-[80%] w-full md:mt-15 p-6  bg-gray-900 text-white rounded-lg shadow-lg flex md:flex-row flex-col self-center">
+    <div className="md:w-[80%] w-full md:mt-15 p-6  bg-gray-900 text-white rounded-lg shadow-lg flex md:flex-row flex-col self-center ">
       <button
         className="text-xl rounded-full bg-gray-500 h-fit w-fit p-2"
         onClick={HandleNavigate}
